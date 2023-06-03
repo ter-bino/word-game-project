@@ -154,6 +154,7 @@ a.button {
     font-weight: bold;
     text-align: center;
     text-decoration: none;
+    text-transform: uppercase;
     outline: 0;
     transition: all 0.5s ease;
 }
@@ -180,6 +181,7 @@ a.button {
     font-weight: bold;
     text-align: center;
     text-decoration: none;
+    text-transform: uppercase;
     outline: 0;
     transition: all 0.5s ease;
 }
