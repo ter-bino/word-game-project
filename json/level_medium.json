@@ -3,60 +3,60 @@
         "id": "medium-1",
         "difficulty": "medium",
         "letterSet": ["s", "a", "m", "p", "o", "d"],
-        "goalScore": 20
+        "goalScore": 20000
     },
     {
         "id": "medium-2",
         "difficulty": "medium",
         "letterSet": ["d", "e", "m", "p", "a", "s"],
-        "goalScore": 20
+        "goalScore": 20000
     },
     {
         "id": "medium-3",
         "difficulty": "medium",
         "letterSet": ["w", "r", "i", "g", "h", "t"],
-        "goalScore": 20
+        "goalScore": 20000
     },
     {
         "id": "medium-4",
         "difficulty": "medium",
         "letterSet": ["s", "l", "i", "d", "e", "s"],
-        "goalScore": 20
+        "goalScore": 20000
     },
     {
         "id": "medium-5",
         "difficulty": "medium",
         "letterSet": ["r", "i", "d", "d", "l", "e"],
-        "goalScore": 20
+        "goalScore": 20000
     },
     {
         "id": "medium-6",
         "difficulty": "medium",
         "letterSet": ["n", "i", "b", "b", "l", "e"],
-        "goalScore": 20
+        "goalScore": 20000
     },
     {
         "id": "medium-7",
         "difficulty": "medium",
         "letterSet": ["b", "l", "u", "m", "e", "d"],
-        "goalScore": 20
+        "goalScore": 20000
     },
     {
         "id": "medium-8",
         "difficulty": "medium",
         "letterSet": ["s", "p", "r", "o", "u", "t"],
-        "goalScore": 20
+        "goalScore": 20000
     },
     {
         "id": "medium-9",
         "difficulty": "medium",
         "letterSet": ["b", "l", "o", "o", "m", "s"],
-        "goalScore": 20
+        "goalScore": 20000
     },
     {
         "id": "medium-10",
         "difficulty": "medium",
         "letterSet": ["p", "o", "w", "e", "r", "s"],
-        "goalScore": 20
+        "goalScore": 20000
     }
 ]

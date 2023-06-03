@@ -59,7 +59,7 @@ const attemptWord = function(word) {
     if(wordsFound.includes(word))
         alert(`${word} is already found!`);
     else if(word.length > 0 && wordsByLetter[word.charAt(0).toUpperCase()].includes(word)) {
-        let pointsEarned = word.length - 2;
+        let pointsEarned = (word.length - 2)*1000;
         wordsFound.push(word);
         currentPoints += pointsEarned;
         updateScoreboard();

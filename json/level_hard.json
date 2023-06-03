@@ -3,60 +3,60 @@
         "id": "hard-1",
         "difficulty": "hard",
         "letterSet": ["s", "a", "m", "p", "o"],
-        "goalScore": 30
+        "goalScore": 30000
     },
     {
         "id": "hard-2",
         "difficulty": "hard",
         "letterSet": ["f", "a", "i", "l", "e"],
-        "goalScore": 30
+        "goalScore": 30000
     },
     {
         "id": "hard-3",
         "difficulty": "hard",
         "letterSet": ["t", "h", "r", "o", "w"],
-        "goalScore": 30
+        "goalScore": 30000
     },
     {
         "id": "hard-4",
         "difficulty": "hard",
         "letterSet": ["c", "r", "a", "m", "p"],
-        "goalScore": 30
+        "goalScore": 30000
     },
     {
         "id": "hard-5",
         "difficulty": "hard",
         "letterSet": ["t", "r", "a", "i", "l"],
-        "goalScore": 30
+        "goalScore": 30000
     },
     {
         "id": "hard-6",
         "difficulty": "hard",
         "letterSet": ["r", "a", "i", "l", "s"],
-        "goalScore": 30
+        "goalScore": 30000
     },
     {
         "id": "hard-7",
         "difficulty": "hard",
         "letterSet": ["c", "h", "a", "m", "b"],
-        "goalScore": 30
+        "goalScore": 30000
     },
     {
         "id": "hard-8",
         "difficulty": "hard",
         "letterSet": ["a", "t", "e", "m", "p"],
-        "goalScore": 30
+        "goalScore": 30000
     },
     {
         "id": "hard-9",
         "difficulty": "hard",
         "letterSet": ["r", "e", "m", "a", "p"],
-        "goalScore": 30
+        "goalScore": 30000
     },
     {
         "id": "hard-10",
         "difficulty": "hard",
         "letterSet": ["e", "a", "t", "e", "r"],
-        "goalScore": 30
+        "goalScore": 30000
     }
 ]
