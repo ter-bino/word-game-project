@@ -30,7 +30,7 @@ body::before {
     top: -250%;
     left: -250%;
     overflow: hidden;
-    background-image: url("/images/basta-laro-logo-square-with-gap.png");
+    background-image: url("../images/basta-laro-logo-square-with-gap.png");
     background-repeat: repeat;
     background-size: 300px 300px;
     background-position: -50% -50%;
