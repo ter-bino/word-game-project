@@ -5,27 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <title>Document</title>
+    <title>Home</title>
 </head>
 <body>
-    <h1>Basta Laro!</h1>
-    <form id="answer-box" onsubmit="attemptWord(this['answer'].value); this.reset(); updateLetterButtons(currentLevel['letterSet']); return false;">
-        <input name="answer" type="text" autocomplete="off" readonly>
-        <button type="submit">✓</button>
-        <button type="button" onclick="this.form.reset(); updateLetterButtons(currentLevel['letterSet']);">↻</button>
-    </form>
-    <p>Form a word:</p>
-    <p>
-        Score: <span id="current-score"></span><br/>
-        Target: <span id="target-score"></span><br/>
-    </p>
-    <div id="letter-set">
-        choices
-    </div>
+    <h3>Home</h3>
     <script src="js/main.js"></script>
     <script src="js/jquery-3.7.0.min.js"></script>
-    <script src="js/levels-loader.js"></script>
-    <script src="js/words-loader.js"></script>
-    <script src="js/game-logic.js"></script>
 </body>
 </html>
