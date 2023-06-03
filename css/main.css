@@ -8,16 +8,17 @@
     --body-margin: 10px;
 }
 
-html {
-    overflow: hidden;
+* {
+    font-family: "Arial", sans-serif;
 }
 
 body {
     overflow: hidden;
     background-color: var(--bg);
     border: var(--body-margin) solid var(--bg-darker);
-    height: 100%;
-    width: 100%;
+    height: calc(100svh - var(--body-margin) * 2);
+    width: calc(100svw - var(--body-margin) * 2);
+    position: fixed;
     margin: 0;
     z-index: 0;
 }
@@ -50,8 +51,111 @@ body::before {
     }
 }
 
+.logo-holder {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .logo {
+    width: clamp(250px, 100vw, 720px);
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+}
+
+a.button {
+    width: clamp(40%, 200px, 50%);
+    background-color: var(--bg-contrast-darker);
+    border: 2px solid var(--bg-contrast);
+    color: var(--bg-contrast-text);
+    border-radius: 15px;
+    padding: 1em 1.5em;
+    margin: 0.25em;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    outline: 0;
+    transition: all 0.5s ease;
+}
+
+a.button.disabled {
+    background-color: #333;
+    background-color: #444;
+    color: #fff;
+    cursor: not-allowed;
+}
+
+a.button:hover {
+    filter: brightness(1.1);
+    animation: size-bounce 0.25s ease;
+}
+
+a.button:active,
+a.button:focus {
+    filter: brightness(0.9);
+    outline: 0;
+    animation: size-bounce 0.25s ease;
+}
+
+@keyframes size-bounce {
+    0% {
+        transform: scale(1.0);
+    }
+    25% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.game-container input[type="text"] {
+    width: clamp(40%, 200px, 50%);
+    background-color: var(--bg-contrast-darker);
+    border: 2px solid var(--bg-contrast);
+    color: var(--bg-contrast-text);
+    border-radius: 15px;
+    padding: 0.5em 1em;
+    margin: 0.25em;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    outline: 0;
+    transition: all 0.5s ease;
+}
+
+.submit-reset {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     height: 100px;
+    width: 100%;
+}
+
+.submit-reset > button {
+    width: 100%;
+    margin: 1em;
 }
 
 button.used {
