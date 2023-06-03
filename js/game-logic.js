@@ -40,7 +40,10 @@ const changeCurrentLevel = function() {
             randomLevel = getRandomLevel("hard");
         } while(completedLevels.hasCompleted(randomLevel))
         currentLevel = randomLevel;
-    } else {alert("All levels are already completed"); return;}
+    } else {
+        blockPage(disappear = true, "All levels are<br>already completed!", "💯", ["🥰", "💕", "😘", "💞", "😍"]);
+        return;
+    }
         
     wordsFound = [];
     currentPoints = 0;
@@ -53,26 +56,26 @@ changeCurrentLevel();
 
 const attemptWord = function(word) {
     if(!wordFollowsLetterSet(currentLevel['letterSet'], word)) {
-        alert("Invalid selection of characters");
+        blockPage(disappear = true, "Invalid selection of characters!", "❌", ["😔", "😭", "💔", "😞", "😖"]);
         return;
     }
     if(wordsFound.includes(word))
-        alert(`${word} is already found!`);
+        blockPage(disappear = true, `${word} is already found!`, "❌", ["😔", "😭", "💔", "😞", "😖"]);
     else if(word.length > 0 && wordsByLetter[word.charAt(0).toUpperCase()].includes(word)) {
         let pointsEarned = (word.length - 2)*1000;
         wordsFound.push(word);
         currentPoints += pointsEarned;
         updateScoreboard();
         if(currentPoints>=currentLevel['goalScore']) {
-            alert(`You have completed this level!`);
+            blockPage(disappear = true, "You have<br>completed<br>this level!", "💯", ["🥰", "💕", "😘", "💞", "😍"]);
             currentPoints = 0;
             completedLevels[currentLevel['difficulty']].push(currentLevel);
             changeCurrentLevel();
         } else {
-            alert(`You earned ${pointsEarned} points!`);
+            blockPage(disappear = true, `You earned ${pointsEarned} points!`, "🎊", ["🥳", "👏", "🥂", "🎉", "⭐"]);
         }
     } else {
-        alert("Unknown word!")
+        blockPage(disappear = true, "Unknown word!", "❓", ["😵", "😕", "⁉️", "🤔", "😖"]);
     }
     updateLetterButtons(currentLevel['letterSet']);
 }

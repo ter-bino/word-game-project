@@ -5,9 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/effects.css">
     <title>Text Twist</title>
 </head>
 <body>
+    <div id="block-page" class="block-page hidden">
+        <div id="block-page-emoji-main"></div>
+        <div id="block-page-emoji-subs">
+            <div class="block-page-emoji-sub"></div>
+            <div class="block-page-emoji-sub"></div>
+            <div class="block-page-emoji-sub"></div>
+            <div class="block-page-emoji-sub"></div>
+            <div class="block-page-emoji-sub"></div>
+         </div>
+        <div id="block-page-message"></div>
+    </div>
     <div class="small-logo-holder">
         <img class="small-logo" draggable="false" src="images/basta-laro-logo.png"/>
     </div>
@@ -29,6 +41,7 @@
         </div>
     </form>
     </div>
+    <script src="js/game-effects.js"></script>
     <script src="js/main.js"></script>
     <script src="js/jquery-3.7.0.min.js"></script>
     <script src="js/levels-loader.js"></script>

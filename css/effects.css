@@ -1,0 +1,128 @@
+.block-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: calc(100% - 40px);
+    width: calc(100% - 40px);
+    margin: 0;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    transition: all 0.5s ease;
+    z-index: 99;
+}
+
+.block-page > * {
+    pointer-events: none;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.block-page.hidden {
+    pointer-events: none;
+    opacity: 0;
+}
+
+.block-page.hidden * {
+    transform: translateY(100%) scale(0.25);
+    filter: blur(20px);
+    transition: all 2s ease;
+}
+
+#block-page-message,
+#block-page-emoji-main,
+#block-page-emoji-subs,
+.block-page-emoji-sub {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    transition: all 0.5s ease;
+}
+
+#block-page-message {
+    font-size: 7rem;
+    font-weight: 800;
+    z-index: 101;
+}
+
+#block-page-emoji-main {
+    font-size: 20rem;
+    font-weight: 800;
+    opacity: 0.5;
+    z-index: 100;
+}
+
+.block-page-emoji-sub {
+    font-size: 10rem;
+    font-weight: 800;
+    opacity: 0.5;
+    z-index: 100;
+}
+
+.block-page.hidden > #block-page-emoji-subs > .block-page-emoji-sub {
+    transform: translate(0px, 100%) translateY(100%) rotate(0deg);
+    transition: all 0.5s ease;
+}
+
+#block-page-emoji-subs > .block-page-emoji-sub:nth-child(1) {
+    transform: translate(-300px, 100px) rotate(-30deg);
+}
+
+#block-page-emoji-subs > .block-page-emoji-sub:nth-child(2) {
+    transform: translate(-150px, -200px) rotate(10deg);
+}
+
+#block-page-emoji-subs > .block-page-emoji-sub:nth-child(3) {
+    transform: translate(0px, 200px) rotate(-20deg);
+}
+
+#block-page-emoji-subs > .block-page-emoji-sub:nth-child(4) {
+    transform: translate(150px, 50px) rotate(50deg);
+}
+
+#block-page-emoji-subs > .block-page-emoji-sub:nth-child(5) {
+    transform: translate(300px, -150px) rotate(-10deg);
+}
+
+@media (min-width: 320px) {    
+    #block-page-message {
+        font-size: 3rem;
+    }
+    
+    #block-page-emoji-main {
+        font-size: 15rem;
+    }
+    
+    .block-page-emoji-sub {
+        font-size: 5rem;
+    }
+    
+    #block-page-emoji-subs > .block-page-emoji-sub:nth-child(1) {
+        transform: translate(-120px, 100px) rotate(-30deg);
+    }
+    
+    #block-page-emoji-subs > .block-page-emoji-sub:nth-child(2) {
+        transform: translate(-60px, -150px) rotate(10deg);
+    }
+    
+    #block-page-emoji-subs > .block-page-emoji-sub:nth-child(3) {
+        transform: translate(0px, 200px) rotate(-20deg);
+    }
+    
+    #block-page-emoji-subs > .block-page-emoji-sub:nth-child(4) {
+        transform: translate(60px, 90px) rotate(50deg);
+    }
+    
+    #block-page-emoji-subs > .block-page-emoji-sub:nth-child(5) {
+        transform: translate(120px, -150px) rotate(-10deg);
+    }
+}
