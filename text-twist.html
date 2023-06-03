@@ -8,19 +8,26 @@
     <title>Text Twist</title>
 </head>
 <body>
-    <img class="logo" draggable="false" src="images/basta-laro-logo.png"/>
-    <form id="answer-box" onsubmit="attemptWord(this['answer'].value); this.reset(); updateLetterButtons(currentLevel['letterSet']); return false;">
-        <input name="answer" type="text" autocomplete="off" readonly>
-        <button type="submit">✓</button>
-        <button type="button" onclick="this.form.reset(); updateLetterButtons(currentLevel['letterSet']);">↻</button>
+    <div class="small-logo-holder">
+        <img class="small-logo" draggable="false" src="images/basta-laro-logo.png"/>
+    </div>
+    <div class="score-container">
+        <div style="text-align: left;">Score</div>
+        <div style="text-align: right;">Target</div>
+        <div class="bold large-font" style="text-align: left;" id="current-score"></div>
+        <div class="bold large-font" style="text-align: right;" id="target-score"></div>
+    </div>
+    <div class="game-container">
+        <form id="answer-box" onsubmit="attemptWord(this['answer'].value); this.reset(); updateLetterButtons(currentLevel['letterSet']); return false;">
+            <input name="answer" type="text" autocomplete="off" readonly>
+        <p>Form a word:</p>
+        <div id="letter-set">
+        </div>
+        <div class="submit-reset">
+            <button class="reset bouncy-button" type="button" onclick="this.form.reset(); updateLetterButtons(currentLevel['letterSet']);">↻</button>
+            <button class="submit bouncy-button" type="submit">✓</button>
+        </div>
     </form>
-    <p>Form a word:</p>
-    <p>
-        Score: <span id="current-score"></span><br/>
-        Target: <span id="target-score"></span><br/>
-    </p>
-    <div id="letter-set">
-        choices
     </div>
     <script src="js/main.js"></script>
     <script src="js/jquery-3.7.0.min.js"></script>
