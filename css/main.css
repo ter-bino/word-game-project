@@ -1,3 +1,55 @@
+:root {
+    --bg: #ffd60a;
+    --bg-darker: #ffc300;
+    --bg-contrast: #003566;
+    --bg-contrast-darker: #001d3d;
+    --bg-text: #001d3d;
+    --bg-contrast-text: #fff;
+    --body-margin: 10px;
+}
+
+html {
+    overflow: hidden;
+}
+
+body {
+    overflow: hidden;
+    background-color: var(--bg);
+    border: var(--body-margin) solid var(--bg-darker);
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    z-index: 0;
+}
+
+body::before {
+    content: ' ';
+    height: 500%;
+    width: 500%;
+    position: absolute;
+    top: -250%;
+    left: -250%;
+    overflow: hidden;
+    background-image: url("/images/basta-laro-logo-square-with-gap.png");
+    background-repeat: repeat;
+    background-size: 300px 300px;
+    background-position: -50% -50%;
+    background-clip: content-box;
+    filter: invert(82%) sepia(28%) saturate(4403%) hue-rotate(358deg) brightness(102%) contrast(106%);
+    transform: rotate(315deg);
+    animation: move-background 120s linear infinite;
+    z-index: -1;
+}
+
+@keyframes move-background {
+    0% {
+        background-position: -50% -50%;
+    }
+    100% {
+        background-position: 53.175% 53.075%;
+    }
+}
+
 .logo {
     height: 100px;
 }
