@@ -1,9 +1,14 @@
-const blockPage = function(disappear = true, message = "", emojiMain = "!", emojiArray = ["@", "#", "$", "%", "&"]) {
-    blockPageDiv = document.getElementById("block-page");
-    messageDiv = document.getElementById("block-page-message");
-    emojiMainDiv = document.getElementById("block-page-emoji-main");
-    emojiSubDivs = document.getElementById("block-page-emoji-subs").children;
+let blockPageDiv = document.getElementById("block-page");
+let messageDiv = document.getElementById("block-page-message");
+let emojiMainDiv = document.getElementById("block-page-emoji-main");
+let emojiSubDivs = document.getElementById("block-page-emoji-subs").children;
 
+const hideBlockPage = function () {
+    blockPageDiv.classList.add("hidden");
+    blockPageDiv.removeEventListener("click", hideBlockPage);
+}
+
+const blockPage = function(disappear = true, message = "", emojiMain = "!", emojiArray = ["@", "#", "$", "%", "&"]) {
     blockPageDiv.classList.remove("hidden");
 
     messageDiv.innerHTML = message;
@@ -14,14 +19,8 @@ const blockPage = function(disappear = true, message = "", emojiMain = "!", emoj
     }
 
     setTimeout(() => {
-        blockPageDiv.addEventListener("click", () => {
-            blockPageDiv.classList.add("hidden");
-        });
+        blockPageDiv.addEventListener("click", hideBlockPage);
     }, 1000);
 
-    if (disappear) {
-        setTimeout(() => {
-            blockPageDiv.classList.add("hidden");
-        }, 2000);
-    }
+    if (disappear) setTimeout(() => { hideBlockPage(); }, 2000);
 }
