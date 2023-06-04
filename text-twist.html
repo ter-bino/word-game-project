@@ -21,8 +21,49 @@
          </div>
         <div id="block-page-message"></div>
     </div>
+    <div id="settings-popup" class="popup">
+        <div class="popup-content menu">
+            <div class="top-right-button" onclick="hideSettingsPopup();">
+                <span>X</span>
+            </div>
+            <div class="menu">
+                <a class="button bouncy-button" onclick="window.location = '../'" >
+                    Title Screen
+                </a>
+                <a class="button bouncy-button" onclick="showSaveGamePopup(); hideSettingsPopup();">
+                    Save Game
+                </a>
+                <a class="button bouncy-button" onclick="showLoadGamePopup(); hideSettingsPopup();" >
+                    Load Game
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="save-game-popup" class="popup">
+        <div class="popup-content menu">
+            <div class="top-right-button" onclick="hideSaveGamePopup(); showSettingsPopup();">
+                <span>X</span>
+            </div>
+            <div class="menu">
+                save game dialog goes here
+            </div>
+        </div>
+    </div>
+    <div id="load-game-popup" class="popup">
+        <div class="popup-content menu">
+            <div class="top-right-button" onclick="hideLoadGamePopup(); showSettingsPopup();">
+                <span>X</span>
+            </div>
+            <div class="menu">
+                load game dialog goes here
+            </div>
+        </div>
+    </div>
     <div class="small-logo-holder">
         <img class="small-logo" draggable="false" src="images/basta-laro-logo.png"/>
+    </div>
+    <div class="top-right-button" onclick="showSettingsPopup();">
+        <span>⚙︎</span>
     </div>
     <div class="score-container" style="display: flexbox">
         <div class="level-box">
