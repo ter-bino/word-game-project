@@ -60,4 +60,5 @@ const loadGame = function(saveGameName) {
 
     updateScoreboard();
     updateLetterButtons(currentLevel.letterSet);
+    updateGameVariables();
 }

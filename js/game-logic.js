@@ -1,24 +1,17 @@
-var completedLevels = {
-    "easy": [],
-    "medium": [],
-    "hard": [],
-    "hasCompleted": function(level) {
-        for(easy of this['easy'])
-            if (easy['id'] == level['id'])
-                    return true;
-        for(medium of this['medium'])
-            if (medium['id'] == level['id'])
-                return true;
-        for(hard of this['hard'])
-            if (hard['id'] == level['id'])
-                return true;
-        return false;
-    }
-}
+var completedLevels = {}, currentLevel, wordsFound, currentPoints;
 
-var currentLevel;
-var wordsFound = [];
-var currentPoints = 0;
+completedLevels.hasCompleted = function(level) {
+    for(easy of this['easy'])
+        if (easy['id'] == level['id'])
+                return true;
+    for(medium of this['medium'])
+        if (medium['id'] == level['id'])
+            return true;
+    for(hard of this['hard'])
+        if (hard['id'] == level['id'])
+            return true;
+    return false;
+}
 
 /**
  * Method to call to change the current level
@@ -50,10 +43,14 @@ const changeCurrentLevel = function() {
     currentLevel = randomLevel;
     updateScoreboard();
     updateLetterButtons(currentLevel['letterSet']);
+    updateGameVariables();
 }
 
-changeCurrentLevel();
-
+/**
+ * Method to call for a user attempt
+ * @param {*} word - user's input
+ * @returns null
+ */
 const attemptWord = function(word) {
     if(!wordFollowsLetterSet(currentLevel['letterSet'], word)) {
         blockPage(disappear = true, "Invalid selection of characters!", "❌", ["😔", "😭", "💔", "😞", "😖"]);
@@ -78,6 +75,7 @@ const attemptWord = function(word) {
         blockPage(disappear = true, "Unknown word!", "❓", ["😵", "😕", "⁉️", "🤔", "😖"]);
     }
     updateLetterButtons(currentLevel['letterSet']);
+    updateGameVariables();
 }
 
 /** Cheks if the word uses each letter in the
@@ -103,3 +101,70 @@ const wordFollowsLetterSet = function(letterSet, word) {
     
     return true; // Word is valid
   }
+
+  /**
+   * Method that loads game variables from the sessionStorage
+   *  - completedLevels
+   *  - currentLevel
+   *  - wordsFound
+   *  - currentPoints
+   * 
+   * If the game variables or not yet in sessionStorage, it will
+   * be created first.
+   */
+  const loadGameVariables = function() {
+
+      let sessionExists = sessionStorage.getItem("gameVariables") != null;
+      //create the game variables if they do not exist in sessionStorage yet
+      if(!sessionExists) {
+          let gameVariables = {};
+          gameVariables.completedLevels = completedLevels;
+          gameVariables.completedLevels.easy = [];
+          gameVariables.completedLevels.medium = [];
+          gameVariables.completedLevels.hard = [];
+          gameVariables.currentLevel = null;
+          gameVariables.wordsFound = [];
+          gameVariables.currentPoints = 0;
+  
+          sessionStorage.setItem("gameVariables", JSON.stringify(gameVariables));
+      }
+  
+      let gameVariables = JSON.parse(sessionStorage.getItem("gameVariables"));
+      completedLevels.easy = gameVariables.completedLevels.easy;
+      completedLevels.medium = gameVariables.completedLevels.medium;
+      completedLevels.hard = gameVariables.completedLevels.hard;
+      currentLevel = gameVariables.currentLevel;
+      wordsFound = gameVariables.wordsFound;
+      currentPoints = gameVariables.currentPoints;
+
+      if(!currentLevel) {
+        changeCurrentLevel();
+      } else {
+        updateScoreboard();
+        updateLetterButtons(currentLevel['letterSet']);
+      }
+      
+  }
+  
+  /**
+   * Updates the game variables in the sessionStorage.
+   * 
+   * MUST BE CALLED whenever any of the game variables are changed:
+   *  - completedLevels
+   *  - currentLevel
+   *  - wordsFound
+   *  - currentPoints
+   */
+  const updateGameVariables = function() {
+      let gameVariables = JSON.parse(sessionStorage.getItem("gameVariables"));
+      gameVariables.completedLevels.easy = completedLevels.easy;
+      gameVariables.completedLevels.medium = completedLevels.medium;
+      gameVariables.completedLevels.hard = completedLevels.hard;
+      gameVariables.currentLevel = currentLevel;
+      gameVariables.wordsFound = wordsFound;
+      gameVariables.currentPoints = currentPoints;
+      
+      sessionStorage.setItem("gameVariables", JSON.stringify(gameVariables));
+  }
+  
+  loadGameVariables();
