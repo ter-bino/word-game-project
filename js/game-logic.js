@@ -75,7 +75,7 @@ const attemptWord = function(word) {
     } else {
         blockPage(disappear = true, "Unknown word!", "❓", ["😵", "😕", "⁉️", "🤔", "😖"]);
     }
-    updateLetterButtons(currentLevel['letterSet']);
+    updateLetterButtons(currentLevel['letterSet'], false);
     updateGameVariables();
 }
 

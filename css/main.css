@@ -206,7 +206,7 @@ a.button {
     transition: all 0.5s ease;
 }
 
-.submit-reset {
+.reset-shuffle-submit {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -215,7 +215,7 @@ a.button {
     width: 100%;
 }
 
-.submit-reset > button {
+.reset-shuffle-submit > button {
     width: 100%;
     margin: 0.5em;
     background-color: var(--bg-contrast-darker);
@@ -231,15 +231,21 @@ a.button {
     transition: all 0.5s ease;
 }
 
-.submit-reset > button.submit {
-    background-color: green;
-    border: 2px solid darkgreen;
+.reset-shuffle-submit > button.reset {
+    background-color: red;
+    border: 2px solid darkred;
     color: var(--bg-contrast-text);
 }
 
-.submit-reset > button.reset {
-    background-color: red;
-    border: 2px solid darkred;
+.reset-shuffle-submit > button.shuffle {
+    background-color: var(--bg-contrast);
+    border: 2px solid var(--bg-contrast-darker);
+    color: var(--bg-contrast-text);
+}
+
+.reset-shuffle-submit > button.submit {
+    background-color: green;
+    border: 2px solid darkgreen;
     color: var(--bg-contrast-text);
 }
 

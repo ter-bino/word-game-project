@@ -1,6 +1,6 @@
-const updateLetterButtons = function(letterSet) {
+const updateLetterButtons = function(letterSet, shuffle = true) {
     let newButtons = '';
-    letterSet.sort(() => Math.random() - 0.5);
+    if (shuffle) letterSet.sort(() => Math.random() - 0.5);
     for(letter of letterSet) {
         newButtons +=
             `<button onclick='clickLetter(this)' value=${letter}>

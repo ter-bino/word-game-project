@@ -94,13 +94,14 @@
         </div>
     </div>
     <div class="game-container">
-        <form id="answer-box" onsubmit="attemptWord(this['answer'].value); this.reset(); updateLetterButtons(currentLevel['letterSet']); return false;">
+        <form id="answer-box" onsubmit="attemptWord(this['answer'].value); this.reset(); return false;">
             <input name="answer" type="text" autocomplete="off" readonly>
         <p>Form a word:</p>
         <div id="letter-set">
         </div>
-        <div class="submit-reset">
-            <button class="reset bouncy-button" type="button" onclick="this.form.reset(); updateLetterButtons(currentLevel['letterSet']);">↻</button>
+        <div class="reset-shuffle-submit">
+            <button class="reset bouncy-button" type="button" onclick="this.form.reset();">⤆</button>
+            <button class="shuffle bouncy-button" type="button" onclick="updateLetterButtons(currentLevel['letterSet']);">↻</button>
             <button class="submit bouncy-button" type="submit">✓</button>
         </div>
     </form>
