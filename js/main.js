@@ -20,3 +20,33 @@ const clickLetter = function(letterButton) {
     letterButton.disabled = true;
     document.querySelector("#answer-box")["answer"].value += letterButton.value;
 }
+
+function showSettingsPopup() {
+    var popup = document.getElementById("settings-popup");
+    popup.style.display = "block";
+}
+
+function hideSettingsPopup() {
+    var popup = document.getElementById("settings-popup");
+    popup.style.display = "none";
+}
+
+function showSaveGamePopup() {
+    var popup = document.getElementById("save-game-popup");
+    popup.style.display = "block";
+}
+
+function hideSaveGamePopup() {
+    var popup = document.getElementById("save-game-popup");
+    popup.style.display = "none";
+}
+
+function showLoadGamePopup() {
+    var popup = document.getElementById("load-game-popup");
+    popup.style.display = "block";
+}
+
+function hideLoadGamePopup() {
+    var popup = document.getElementById("load-game-popup");
+    popup.style.display = "none";
+}
