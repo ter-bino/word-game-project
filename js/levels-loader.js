@@ -1,5 +1,12 @@
 var easyLevels, mediumLevels, hardLevels;
 
+/**
+ * Load all levels from the files:
+ * 
+ * level_easy.json
+ * level_medium.json
+ * level_hard.json
+ */
 const loadLevels = function() {
     $.ajax({
         url: './json/level_easy.json',
@@ -22,6 +29,12 @@ const loadLevels = function() {
 };
 loadLevels();
 
+/**
+ * Gets a random level from all avaialable levels
+ * 
+ * @param {*} difficulty of the level to get
+ * @returns a level object
+ */
 const getRandomLevel = function(difficulty) {
     switch(difficulty.toLowerCase()) {
         case "easy":
