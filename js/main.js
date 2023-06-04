@@ -43,6 +43,13 @@ function hideSaveGamePopup() {
 
 function showLoadGamePopup() {
     var popup = document.getElementById("load-game-popup");
+    let saves = getSavedGames();
+    let loadMenu = '<h1>SELECT SAVE GAME TO LOAD:</h1>';
+    for(let save of saves) {
+        loadMenu = loadMenu +
+        `<a class='button bouncy-button' onclick='loadGame("${save}"); hideLoadGamePopup()'>${save.toUpperCase()}</a>`
+    }
+    popup.querySelector("div div.menu").innerHTML = loadMenu;
     popup.style.display = "block";
 }
 
