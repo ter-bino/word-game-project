@@ -236,6 +236,12 @@ a.button {
     font-size: 2rem;
 }
 
+.disable-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
 /* COMMON STYLES */
 
 .game-container #letter-set > button.used,
