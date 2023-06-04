@@ -20,12 +20,13 @@ const getSavedGames = function() {
  * of the localStorage.
  * 
  * @param {*} saveGameName - identifier of the save game
+ * @returns whether or not save was successful (boolean)
  */
 const saveGame = function(saveGameName) {
     //Confirm to overwrite save if saveGameName is already used
     if(getSavedGames().includes(saveGameName))
         if(!confirm(`${saveGameName} is an existing save name. Do you want to overwrite?`))
-            return;
+            return false;
     
     
     let existingSaves = JSON.parse(localStorage.getItem("savedGames"));
@@ -37,6 +38,7 @@ const saveGame = function(saveGameName) {
     existingSaves[saveGameName] = newSave;
 
     localStorage.setItem("savedGames", JSON.stringify(existingSaves));
+    return true;
 }
 
 /**
