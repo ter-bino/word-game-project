@@ -177,7 +177,7 @@ const updateGameVariables = function() {
 const getCurrentLevel = function() {
     return completedLevels.easy.length +
             completedLevels.medium.length +
-            completedLevels.hard.length;
+            completedLevels.hard.length + 1;
 }
 
 /**
