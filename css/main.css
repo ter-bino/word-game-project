@@ -102,7 +102,7 @@ a.button {
 
 .top-right-button {
     position: absolute;
-    background-color: red;
+    background-color: rgb(207, 55, 55);
     border-radius: 5px;
     border: solid 1px black;
     font-size: 1.25em;
@@ -113,6 +113,11 @@ a.button {
     right: 25px;
     width: 25px;
     height: 25px;
+}
+
+.top-right-button:hover {
+    background-color: red;
+    cursor: pointer;
 }
 
 @keyframes size-bounce {
