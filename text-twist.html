@@ -44,8 +44,22 @@
             <div class="top-right-button" onclick="hideSaveGamePopup(); showSettingsPopup();">
                 <span>X</span>
             </div>
-            <div class="menu">
-                save game dialog goes here
+            <div class="game-container">
+                <form onsubmit="
+                    if(saveGame(this['save-name'].value)){
+                        hideSaveGamePopup();
+                        this.reset();
+                    };
+                    return false;
+                    ">
+                    <label for="save-name" class="bold">
+                        ENTER SAVE GAME NAME:
+                    </label>
+                    <input type="text" name="save-name" style="padding: 0">
+                    <div class="submit-reset">
+                        <button class="submit bouncy-button" style="width: fit-content">Save</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
