@@ -84,6 +84,7 @@ body::before {
     height: 60%;
 }
 
+button.submit,
 a.button {
     width: clamp(40%, 200px, 50%);
     background-color: var(--bg-contrast-darker);
@@ -100,24 +101,69 @@ a.button {
     transition: all 0.5s ease;
 }
 
-.top-right-button {
-    position: absolute;
-    background-color: rgb(207, 55, 55);
-    border-radius: 5px;
-    border: solid 1px black;
-    font-size: 1.25em;
-    color: var(--bg-contrast-darker);
-    align-items: center;
+input[type="text"] {
+    width: calc(100% - 2em - 4px - 0.5em);
+    background-color: var(--bg-contrast-darker);
+    border: 2px solid var(--bg-contrast);
+    color: var(--bg-contrast-text);
+    border-radius: 15px;
+    padding: 0.5em 1em;
+    margin: 0.25em;
+    font-size: 3rem;
+    font-weight: bold;
     text-align: center;
-    top: 25px;
-    right: 25px;
-    width: 25px;
-    height: 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    outline: 0;
+    transition: all 0.5s ease;
 }
 
-.top-right-button:hover {
-    background-color: red;
-    cursor: pointer;
+.top-left-button,
+.top-right-button {
+    position: fixed;
+    background-color: var(--bg-contrast-darker);
+    border-radius: 5px;
+    border: solid 2px var(--bg-contrast);
+    font-size: 25px;
+    font-weight: 800;
+    line-height: 50px;
+    color: var(--bg-contrast-text);
+    align-items: center;
+    text-align: center;
+    top: 20px;
+    width: 50px;
+    height: 50px;
+}
+
+.top-right-button {
+    right: 20px;
+}
+
+.top-left-button {
+    left: 20px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.popup-content {
+    background-color: #fff;
+    width: clamp(300px, 80%, 360px);
+    height: fit-content;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--bg);
+    box-shadow: 0 0 10px var(--bg-darker);
+    text-align: center;
 }
 
 @keyframes size-bounce {
@@ -160,23 +206,6 @@ a.button {
     align-items: center;
     justify-content: center;
     width: clamp(320px, 100vw, 720px);
-}
-
-.game-container input[type="text"] {
-    width: calc(100% - 2em - 4px - 0.5em);
-    background-color: var(--bg-contrast-darker);
-    border: 2px solid var(--bg-contrast);
-    color: var(--bg-contrast-text);
-    border-radius: 15px;
-    padding: 0.5em 1em;
-    margin: 0.25em;
-    font-size: 3rem;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    outline: 0;
-    transition: all 0.5s ease;
 }
 
 .game-container #letter-set {

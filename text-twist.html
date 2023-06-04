@@ -24,12 +24,9 @@
     <div id="settings-popup" class="popup">
         <div class="popup-content menu">
             <div class="top-right-button" onclick="hideSettingsPopup();">
-                <span>X</span>
+                <span>×</span>
             </div>
             <div class="menu">
-                <a class="button bouncy-button" onclick="window.location = './'" >
-                    Title Screen
-                </a>
                 <a class="button bouncy-button" onclick="showSaveGamePopup(); hideSettingsPopup();">
                     Save Game
                 </a>
@@ -42,31 +39,29 @@
     <div id="save-game-popup" class="popup">
         <div class="popup-content menu">
             <div class="top-right-button" onclick="hideSaveGamePopup(); showSettingsPopup();">
-                <span>X</span>
+                <span>×</span>
             </div>
-            <div class="game-container">
-                <form onsubmit="
-                    if(saveGame(this['save-name'].value)){
-                        hideSaveGamePopup();
-                        this.reset();
-                    };
-                    return false;
-                    ">
-                    <label for="save-name" class="bold">
-                        ENTER SAVE GAME NAME:
-                    </label>
-                    <input type="text" name="save-name" style="padding: 0">
-                    <div class="submit-reset">
-                        <button class="submit bouncy-button" style="width: fit-content">Save</button>
-                    </div>
-                </form>
-            </div>
+            <form onsubmit="
+                if(saveGame(this['save-name'].value)){
+                    hideSaveGamePopup();
+                    this.reset();
+                };
+                return false;
+                ">
+                <label for="save-name" class="bold">
+                    ENTER SAVE GAME NAME:
+                </label>
+                <input type="text" name="save-name" style="padding: 0">
+                <div class="submit-reset">
+                    <button class="submit bouncy-button" style="width: fit-content">Save</button>
+                </div>
+            </form>
         </div>
     </div>
     <div id="load-game-popup" class="popup">
         <div class="popup-content">
             <div class="top-right-button" onclick="hideLoadGamePopup(); showSettingsPopup();">
-                <span>X</span>
+                <span>×</span>
             </div>
             <div class="menu">
                 load game dialog goes here
@@ -76,7 +71,10 @@
     <div class="small-logo-holder">
         <img class="small-logo" draggable="false" src="images/basta-laro-logo.png"/>
     </div>
-    <div class="top-right-button" onclick="showSettingsPopup();">
+    <div class="top-left-button bouncy-button" onclick="window.location = './'">
+        <span>⌂</span>
+    </div>
+    <div class="top-right-button bouncy-button" onclick="showSettingsPopup();">
         <span>⚙︎</span>
     </div>
     <div class="score-container" style="display: flexbox">
