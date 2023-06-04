@@ -43,6 +43,7 @@ const changeCurrentLevel = function() {
     currentLevel = randomLevel;
     updateScoreboard();
     updateLetterButtons(currentLevel['letterSet']);
+    document.querySelector("#current-level").innerHTML = getCurrentLevel();
     updateGameVariables();
 }
 
@@ -100,71 +101,92 @@ const wordFollowsLetterSet = function(letterSet, word) {
     }
     
     return true; // Word is valid
-  }
+}
 
-  /**
-   * Method that loads game variables from the sessionStorage
-   *  - completedLevels
-   *  - currentLevel
-   *  - wordsFound
-   *  - currentPoints
-   * 
-   * If the game variables or not yet in sessionStorage, it will
-   * be created first.
-   */
-  const loadGameVariables = function() {
+/**
+ * Method that loads game variables from the sessionStorage
+ *  - completedLevels
+ *  - currentLevel
+ *  - wordsFound
+ *  - currentPoints
+ * 
+ * If the game variables or not yet in sessionStorage, it will
+ * be created first.
+ */
+const loadGameVariables = function() {
 
-      let sessionExists = sessionStorage.getItem("gameVariables") != null;
-      //create the game variables if they do not exist in sessionStorage yet
-      if(!sessionExists) {
-          let gameVariables = {};
-          gameVariables.completedLevels = completedLevels;
-          gameVariables.completedLevels.easy = [];
-          gameVariables.completedLevels.medium = [];
-          gameVariables.completedLevels.hard = [];
-          gameVariables.currentLevel = null;
-          gameVariables.wordsFound = [];
-          gameVariables.currentPoints = 0;
-  
-          sessionStorage.setItem("gameVariables", JSON.stringify(gameVariables));
-      }
-  
-      let gameVariables = JSON.parse(sessionStorage.getItem("gameVariables"));
-      completedLevels.easy = gameVariables.completedLevels.easy;
-      completedLevels.medium = gameVariables.completedLevels.medium;
-      completedLevels.hard = gameVariables.completedLevels.hard;
-      currentLevel = gameVariables.currentLevel;
-      wordsFound = gameVariables.wordsFound;
-      currentPoints = gameVariables.currentPoints;
+    let sessionExists = sessionStorage.getItem("gameVariables") != null;
+    //create the game variables if they do not exist in sessionStorage yet
+    if(!sessionExists) {
+        let gameVariables = {};
+        gameVariables.completedLevels = completedLevels;
+        gameVariables.completedLevels.easy = [];
+        gameVariables.completedLevels.medium = [];
+        gameVariables.completedLevels.hard = [];
+        gameVariables.currentLevel = null;
+        gameVariables.wordsFound = [];
+        gameVariables.currentPoints = 0;
 
-      if(!currentLevel) {
-        changeCurrentLevel();
-      } else {
-        updateScoreboard();
-        updateLetterButtons(currentLevel['letterSet']);
-      }
-      
-  }
-  
-  /**
-   * Updates the game variables in the sessionStorage.
-   * 
-   * MUST BE CALLED whenever any of the game variables are changed:
-   *  - completedLevels
-   *  - currentLevel
-   *  - wordsFound
-   *  - currentPoints
-   */
-  const updateGameVariables = function() {
-      let gameVariables = JSON.parse(sessionStorage.getItem("gameVariables"));
-      gameVariables.completedLevels.easy = completedLevels.easy;
-      gameVariables.completedLevels.medium = completedLevels.medium;
-      gameVariables.completedLevels.hard = completedLevels.hard;
-      gameVariables.currentLevel = currentLevel;
-      gameVariables.wordsFound = wordsFound;
-      gameVariables.currentPoints = currentPoints;
-      
-      sessionStorage.setItem("gameVariables", JSON.stringify(gameVariables));
-  }
-  
-  loadGameVariables();
+        sessionStorage.setItem("gameVariables", JSON.stringify(gameVariables));
+    }
+
+    let gameVariables = JSON.parse(sessionStorage.getItem("gameVariables"));
+    completedLevels.easy = gameVariables.completedLevels.easy;
+    completedLevels.medium = gameVariables.completedLevels.medium;
+    completedLevels.hard = gameVariables.completedLevels.hard;
+    currentLevel = gameVariables.currentLevel;
+    wordsFound = gameVariables.wordsFound;
+    currentPoints = gameVariables.currentPoints;
+
+    if(!currentLevel) {
+    changeCurrentLevel();
+    } else {
+    updateScoreboard();
+    updateLetterButtons(currentLevel['letterSet']);
+    document.querySelector("#current-level").innerHTML = getCurrentLevel();
+    }
+    
+}
+
+/**
+ * Updates the game variables in the sessionStorage.
+ * 
+ * MUST BE CALLED whenever any of the game variables are changed:
+ *  - completedLevels
+ *  - currentLevel
+ *  - wordsFound
+ *  - currentPoints
+ */
+const updateGameVariables = function() {
+    let gameVariables = JSON.parse(sessionStorage.getItem("gameVariables"));
+    gameVariables.completedLevels.easy = completedLevels.easy;
+    gameVariables.completedLevels.medium = completedLevels.medium;
+    gameVariables.completedLevels.hard = completedLevels.hard;
+    gameVariables.currentLevel = currentLevel;
+    gameVariables.wordsFound = wordsFound;
+    gameVariables.currentPoints = currentPoints;
+    
+    sessionStorage.setItem("gameVariables", JSON.stringify(gameVariables));
+}
+
+/**
+ * Get info on current game level
+ * 
+ * @returns current game level
+ */
+const getCurrentLevel = function() {
+    return completedLevels.easy.length +
+            completedLevels.medium.length +
+            completedLevels.hard.length;
+}
+
+/**
+ * Get info on current level difficulty
+ * 
+ * @returns current level difficulty
+ */
+const getCurrentDifficulty = function() {
+    return currentLevel.difficulty;
+}
+
+loadGameVariables();
