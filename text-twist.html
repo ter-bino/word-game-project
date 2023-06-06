@@ -98,8 +98,8 @@
         <div id="letter-set">
         </div>
         <div class="reset-shuffle-submit">
-            <button class="reset bouncy-button" type="button" onclick="this.form.reset();">⤆</button>
-            <button class="shuffle bouncy-button" type="button" onclick="updateLetterButtons(currentLevel['letterSet']);">↻</button>
+            <button class="reset bouncy-button" type="button" onclick="this.form.reset(); updateLetterButtons(currentLevel['letterSet'], false);">⤆</button>
+            <button class="shuffle bouncy-button" type="button" onclick="updateLetterButtons(currentLevel['letterSet'], true, false);">↻</button>
             <button class="submit bouncy-button" type="submit">✓</button>
         </div>
     </form>

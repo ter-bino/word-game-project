@@ -1,13 +1,21 @@
-const updateLetterButtons = function(letterSet, shuffle = true) {
+const updateLetterButtons = function(letterSet, shuffle = true, reset = true) {
     let newButtons = '';
     if (shuffle) letterSet.sort(() => Math.random() - 0.5);
-    for(letter of letterSet) {
-        newButtons +=
-            `<button onclick='clickLetter(this)' value=${letter}>
-            ${letter}
-            </button>`;
+    if (reset) {
+        for(letter of letterSet) {
+            newButtons +=
+                `<button onclick='clickLetter(this)' value=${letter}>
+                ${letter}
+                </button>`;
+        }
+        document.querySelector("#letter-set").innerHTML = newButtons;
+    } else {
+        let existingButtons = Array.from(document.querySelector("#letter-set").children);
+        existingButtons.sort(() => Math.random() - 0.5);
+        existingButtons.forEach(element => {
+            document.querySelector("#letter-set").appendChild(element);
+        });
     }
-    document.querySelector("#letter-set").innerHTML = newButtons;
 }
 
 const updateScoreboard = function() {
