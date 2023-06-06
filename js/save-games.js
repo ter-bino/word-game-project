@@ -47,7 +47,7 @@ const saveGame = function(saveGameName) {
  */
 const loadGame = function(saveGameName) {
     if(!getSavedGames().includes(saveGameName)) {
-        alert(`${saveGameName} is not a valid save game.`);
+        blockPage(disappear = true, `"${saveGameName}" is not a valid save game!`, "❌", ["😔", "😭", "💔", "😞", "😖"]);
         return;
     }
 
@@ -58,7 +58,7 @@ const loadGame = function(saveGameName) {
     wordsFound = saveToLoad.wordF;
     currentPoints = saveToLoad.currP;
 
-    alert("Loaded ")
+    blockPage(disappear = true, `"${saveGameName}" has been loaded.`, "💯", ["🥰", "💕", "😘", "💞", "😍"])
 
     updateScoreboard();
     updateLetterButtons(currentLevel.letterSet);
