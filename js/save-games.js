@@ -38,6 +38,7 @@ const saveGame = function(saveGameName) {
     existingSaves[saveGameName] = newSave;
 
     localStorage.setItem("savedGames", JSON.stringify(existingSaves));
+    blockPage(disappear = true, `"${saveGameName}" has been saved.`, "💾", ["🥰", "💕", "😘", "💞", "😍"]);
     return true;
 }
 
@@ -58,7 +59,7 @@ const loadGame = function(saveGameName) {
     wordsFound = saveToLoad.wordF;
     currentPoints = saveToLoad.currP;
 
-    blockPage(disappear = true, `"${saveGameName}" has been loaded.`, "💾", ["🥰", "💕", "😘", "💞", "😍"])
+    blockPage(disappear = true, `"${saveGameName}" has been loaded.`, "💾", ["🥰", "💕", "😘", "💞", "😍"]);
 
     updateScoreboard();
     updateLetterButtons(currentLevel.letterSet);
