@@ -298,7 +298,9 @@ input[type="text"] {
 }
 
 /* COMMON STYLES */
-
+.desktop-only {
+    display: none;
+}
 .game-container #letter-set > button.used,
 a.button.disabled {
     background-color: #333;
@@ -321,4 +323,42 @@ a.button.disabled {
     filter: brightness(0.9);
     outline: 0;
     animation: size-bounce 0.25s ease;
+}
+
+/* SMALL DISPLAY DESKTOP LAYOUT */
+@media (min-width: 800px) and (max-width: 1400px) {
+    .small-logo-holder {
+        display: none;
+    }
+}
+
+/* DESKTOP LAYOUT */
+@media (min-width: 800px) {
+    .score-container {
+        position: absolute;
+        height: calc(100% - 15%);
+        top: 15%;
+        left: 0;
+        width: 30%;
+        grid-template-columns: 1fr;
+        gap: 2em;
+        font-size: 1.5rem;
+    }
+    .game-container {
+        position: absolute;
+        height: calc(100% - 15%);
+        top: 15%;
+        right: 0;
+        width: 70%;
+    }
+    .large-font {
+        font-size: 3rem;
+    }
+    /* COMMON STYLES */
+    .desktop-only {
+        display: unset;
+    }
+    .mobile-only {
+        display: none;
+    }
 }
