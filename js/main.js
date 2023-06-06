@@ -1,20 +1,30 @@
-const updateLetterButtons = function(letterSet, shuffle = true, reset = true) {
+const updateLetterButtons = function(letterSet) {
     let newButtons = '';
-    if (shuffle) letterSet.sort(() => Math.random() - 0.5);
-    if (reset) {
-        for(letter of letterSet) {
-            newButtons +=
-                `<button onclick='clickLetter(this)' value=${letter}>
-                ${letter}
-                </button>`;
-        }
-        document.querySelector("#letter-set").innerHTML = newButtons;
-    } else {
-        let existingButtons = Array.from(document.querySelector("#letter-set").children);
-        existingButtons.sort(() => Math.random() - 0.5);
-        existingButtons.forEach(element => {
-            document.querySelector("#letter-set").appendChild(element);
-        });
+    letterSet.sort(() => Math.random() - 0.5);
+    for(letter of letterSet) {
+        newButtons +=
+            `<button onclick='clickLetter(this)' value=${letter}>
+            ${letter}
+            </button>`;
+    }
+    document.querySelector("#letter-set").innerHTML = newButtons;
+}
+
+const shuffleLetterButtons = function(letterWrapperID) {
+    let letterWrapperObj = document.getElementById(letterWrapperID);
+    let existingButtons = Array.from(letterWrapperObj.children);
+    existingButtons.sort(() => Math.random() - 0.5);
+    existingButtons.forEach(element => {
+        letterWrapperObj.appendChild(element);
+    });
+}
+
+const resetLetterButtons = function (letterWrapperID) {
+    let letterWrapperObj = document.getElementById(letterWrapperID);
+    let letters = letterWrapperObj.children;
+    for (letterObj of letters) {
+        letterObj.classList.remove("used");
+        letterObj.disabled = null;
     }
 }
 
