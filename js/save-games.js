@@ -51,22 +51,27 @@ const loadGame = function(saveGameName) {
         blockPage(disappear = true, `"${saveGameName}" is not a valid save game!`, "❌", ["😔", "😭", "💔", "😞", "😖"]);
         return;
     }
-
-    let saveToLoad = JSON.parse(localStorage.getItem("savedGames"))[saveGameName];
     
-    completedLevels.easy = saveToLoad.compL.easy;
-    completedLevels.medium = saveToLoad.compL.medium;
-    completedLevels.hard = saveToLoad.compL.hard;
-    currentLevel = saveToLoad.currL;
-    wordsFound = saveToLoad.wordF;
-    currentPoints = saveToLoad.currP;
+    let saveToLoad = JSON.parse(localStorage.getItem("savedGames"))[saveGameName];
+    let gameVariables = JSON.parse(sessionStorage.getItem("gameVariables"));
 
-    blockPage(disappear = true, `"${saveGameName}" has been loaded.`, "💾", ["🥰", "💕", "😘", "💞", "😍"]);
+    if(!gameVariables) {
+        gameVariables = {};
+        gameVariables.completedLevels = {};
+    }
+    
+    gameVariables.completedLevels.easy = saveToLoad.compL.easy;
+    gameVariables.completedLevels.medium = saveToLoad.compL.medium;
+    gameVariables.completedLevels.hard = saveToLoad.compL.hard;
+    gameVariables.currentLevel = saveToLoad.currL;
+    gameVariables.wordsFound = saveToLoad.wordF;
+    gameVariables.currentPoints = saveToLoad.currP;
 
-    updateScoreboard();
-    updateLetterButtons(currentLevel.letterSet);
-    document.querySelector("#current-level").innerHTML = getCurrentLevel();
-    updateGameVariables();
+    sessionStorage.setItem("gameVariables", JSON.stringify(gameVariables));
+
+    blockPage(disappear = true, `"${saveGameName}" will be loaded...`, "💾", ["🥰", "💕", "😘", "💞", "😍"]);
+
+    window.setTimeout(()=>window.location= "./text-twist.html", 750);
 }
 
 /**
