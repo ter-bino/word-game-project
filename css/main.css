@@ -188,15 +188,21 @@ input[type="text"] {
     margin-bottom: 0.5em;
 }
 
+#highscores,
 #found-words {
     counter-reset: found-words-div;
     max-height: 70svh;
     overflow: auto;
 }
 
+#highscores {
+    counter-reset: highscores;
+}
+
+#highscores > div,
 #found-words > div {
-    position: relative;
     counter-increment: found-words-div;
+    position: relative;
     margin: 0;
     padding: 0.25rem;
     font-size: 1.75rem;
@@ -204,10 +210,26 @@ input[type="text"] {
     text-transform: uppercase;
 }
 
+#highscores > div {
+    counter-increment: highscores;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1em;
+}
+
+#highscores > div > .score {
+    font-size: 1rem;
+    line-height: calc(1em * 2);
+    margin-right: 0.5rem;
+    opacity: 0.75;
+}
+
+#highscores > div:nth-child(odd),
 #found-words > div:nth-child(odd) {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
+#highscores > div::before,
 #found-words > div::before {
     position: absolute;
     top: 0;
@@ -219,6 +241,10 @@ input[type="text"] {
     font-weight: bold;
     opacity: 0.5;
     content: counters(found-words-div, ".") " ";
+}
+
+#highscores > div::before {
+    content: counters(highscores, ".") " ";
 }
 
 @keyframes size-bounce {

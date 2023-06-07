@@ -38,6 +38,16 @@ const checkFoundWords = function () {
     foundWordsDiv.innerHTML = foundWords;
 }
 
+const viewHighscores = function () {
+    showPopup('highscores-popup');
+    highscoresDiv = document.getElementById('highscores');
+    let highscores = '';
+    for (score of Object.entries(getHighscores())) {
+        highscores = highscores + '<div><span>' + score[0] + '</span><span class="score">' + score[1] + '</span></div>';
+    }
+    highscoresDiv.innerHTML = highscores;
+}
+
 const updateScoreboard = function() {
     document.querySelector("#current-score").innerHTML = currentPoints;
     document.querySelector("#target-score").innerHTML = currentLevel['goalScore'];

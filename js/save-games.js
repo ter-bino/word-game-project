@@ -88,7 +88,7 @@ const getHighscores = function() {
         highscores[save] = score + saves[save].currP;
     }
 
-    console.log(Object.fromEntries(
+    return(Object.fromEntries(
     Object.entries(highscores).sort(([, value1], [, value2]) => value2 - value1)
     ))
 }
