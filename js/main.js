@@ -42,8 +42,8 @@ const viewHighscores = function () {
     showPopup('highscores-popup');
     highscoresDiv = document.getElementById('highscores');
     let highscores = '';
-    for (score of Object.entries(getHighscores())) {
-        highscores = highscores + '<div><span class="name">' + score[0] + '</span><span class="score">' + score[1] + '</span></div>';
+    for (entry of getHighscores()) {
+        highscores = highscores + '<div><span class="name">' + entry.name + '</span><span class="score">' + entry.score + '</span></div>';
     }
     highscoresDiv.innerHTML = highscores;
 }
