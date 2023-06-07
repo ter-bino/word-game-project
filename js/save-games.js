@@ -68,3 +68,27 @@ const loadGame = function(saveGameName) {
     document.querySelector("#current-level").innerHTML = getCurrentLevel();
     updateGameVariables();
 }
+
+/**
+ * Fetch high scores from save games
+ */
+const getHighscores = function() {
+    
+    let saves = JSON.parse(localStorage.getItem("savedGames"));
+    let highscores = {};    
+
+    for(let save in saves) {
+        let score = 0;
+        for(let level of saves[save].compL.easy)
+            score = score + level.goalScore;
+        for(let level of saves[save].compL.medium)
+            score = score + level.goalScore;
+        for(let level of saves[save].compL.hard)
+            score = score + level.goalScore;
+        highscores[save] = score + saves[save].currP;
+    }
+
+    console.log(Object.fromEntries(
+    Object.entries(highscores).sort(([, value1], [, value2]) => value2 - value1)
+    ))
+}
