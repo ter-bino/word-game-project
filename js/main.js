@@ -28,6 +28,10 @@ const resetLetterButtons = function (letterWrapperID) {
     }
 }
 
+const checkFoundWords = function () {
+    showPopup('found-words');
+}
+
 const updateScoreboard = function() {
     document.querySelector("#current-score").innerHTML = currentPoints;
     document.querySelector("#target-score").innerHTML = currentLevel['goalScore'];
@@ -39,39 +43,34 @@ const clickLetter = function(letterButton) {
     document.querySelector("#answer-box")["answer"].value += letterButton.value;
 }
 
-function showSettingsPopup() {
-    var popup = document.getElementById("settings-popup");
-    popup.style.display = "block";
+const showPopup = function (popupIdToShow) {
+    let popupId = document.getElementById(popupIdToShow);
+    if (popupId) {
+        document.getElementById('popup').style.display = "block";
+        for (popupChildren of popup.children) {
+            popupChildren.style.display = "none";
+        }
+        popupId.style.display = "block";
+    } else {
+        alert("Invalid popup ID!");
+    }
 }
 
-function hideSettingsPopup() {
-    var popup = document.getElementById("settings-popup");
+const hidePopup = function () {
+    popup = document.getElementById('popup');
     popup.style.display = "none";
+    for (popupChildren of popup.children) {
+        popupChildren.style.display = "none";
+    }
 }
 
-function showSaveGamePopup() {
-    var popup = document.getElementById("save-game-popup");
-    popup.style.display = "block";
-}
-
-function hideSaveGamePopup() {
-    var popup = document.getElementById("save-game-popup");
-    popup.style.display = "none";
-}
-
-function showLoadGamePopup() {
-    var popup = document.getElementById("load-game-popup");
+function loadSavedGames() {
+    var savedGames = document.getElementById("load-game-popup");
     let saves = getSavedGames();
     let loadMenu = '<h1>SELECT SAVE GAME TO LOAD:</h1>';
     for(let save of saves) {
         loadMenu = loadMenu +
-        `<a class='button bouncy-button' onclick='loadGame("${save}"); hideLoadGamePopup()'>${save.toUpperCase()}</a>`
+        `<a class='button bouncy-button' onclick='loadGame("${save}"); hidePopup();'>${save.toUpperCase()}</a>`
     }
-    popup.querySelector("div div.menu").innerHTML = loadMenu;
-    popup.style.display = "block";
-}
-
-function hideLoadGamePopup() {
-    var popup = document.getElementById("load-game-popup");
-    popup.style.display = "none";
+    savedGames.querySelector("div div.menu").innerHTML = loadMenu;
 }
