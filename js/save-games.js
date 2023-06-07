@@ -80,7 +80,7 @@ const loadGame = function(saveGameName) {
 const getHighscores = function() {
     
     let saves = JSON.parse(localStorage.getItem("savedGames"));
-    let highscores = {};    
+    let highscores = [];    
 
     for(let save in saves) {
         let score = 0;
@@ -90,10 +90,8 @@ const getHighscores = function() {
             score = score + level.goalScore;
         for(let level of saves[save].compL.hard)
             score = score + level.goalScore;
-        highscores[save] = score + saves[save].currP;
+        highscores.push({"name": save, "score": score});
     }
 
-    return(Object.fromEntries(
-    Object.entries(highscores).sort(([, value1], [, value2]) => value2 - value1)
-    ))
+    return highscores.sort((a, b) => b.score - a.score);
 }
