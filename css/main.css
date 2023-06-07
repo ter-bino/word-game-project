@@ -217,10 +217,20 @@ input[type="text"] {
     padding-left: 1em;
 }
 
+#highscores > div > .name {
+    width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
 #highscores > div > .score {
+    width: 30%;
     font-size: 1rem;
     line-height: calc(1em * 2);
     margin-right: 0.5rem;
+    text-align: right;
     opacity: 0.75;
 }
 

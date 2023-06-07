@@ -43,7 +43,7 @@ const viewHighscores = function () {
     highscoresDiv = document.getElementById('highscores');
     let highscores = '';
     for (score of Object.entries(getHighscores())) {
-        highscores = highscores + '<div><span>' + score[0] + '</span><span class="score">' + score[1] + '</span></div>';
+        highscores = highscores + '<div><span class="name">' + score[0] + '</span><span class="score">' + score[1] + '</span></div>';
     }
     highscoresDiv.innerHTML = highscores;
 }
