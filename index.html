@@ -30,12 +30,21 @@
             <div id="highscores">
             </div>
         </div>
+        <div id="load-game-popup">
+            <div class="top-right-button bouncy-button" onclick="showPopup('settings-popup');">
+                <span>×</span>
+            </div>
+            <div class="popup-header">LOAD GAME</div>
+            <div class="menu">
+            </div>
+        </div>
     </div>
     <div class="logo-holder">
         <img class="logo" draggable="false" src="images/basta-laro-logo.png"/>
     </div>
     <div class="menu">
         <a href="text-twist.html" class="button bouncy-button">PLAY!</a>
+        <a onclick="showPopup('load-game-popup'); loadSavedGames();" class="button bouncy-button">LOAD GAME</a>
         <a onclick="viewHighscores();" class="button bouncy-button">HIGHSCORES</a>
     </div>
     <script src="js/main.js"></script>
