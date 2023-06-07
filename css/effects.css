@@ -16,6 +16,7 @@
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
+    /* backdrop-filter: blur(20px); */
 }
 
 .block-page.hidden {
@@ -25,7 +26,7 @@
 
 .block-page.hidden * {
     transform: translateY(100%) scale(0.25);
-    filter: blur(20px);
+    /* filter: blur(20px); */
     transition: all 2s ease;
 }
 
