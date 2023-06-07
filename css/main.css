@@ -240,7 +240,6 @@ input[type="text"] {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 100px;
     width: 100%;
 }
 
@@ -326,7 +325,7 @@ a.button.disabled {
 }
 
 /* SMALL DISPLAY DESKTOP LAYOUT */
-@media (min-width: 800px) and (max-width: 1400px) {
+@media (max-height: 680px) {
     .small-logo-holder {
         display: none;
     }
