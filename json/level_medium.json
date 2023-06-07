@@ -58,5 +58,65 @@
         "difficulty": "medium",
         "letterSet": ["p", "o", "w", "e", "r", "s"],
         "goalScore": 20000
+    },
+    {
+        "id": "medium-11",
+        "difficulty": "medium",
+        "letterSet": ["m", "a", "n", "i", "l", "a"],
+        "goalScore": 20000
+    },
+    {
+        "id": "medium-12",
+        "difficulty": "medium",
+        "letterSet": ["o", "r", "a", "c", "l", "e"],
+        "goalScore": 20000
+    },
+    {
+        "id": "medium-13",
+        "difficulty": "medium",
+        "letterSet": ["u", "p", "b", "o", "r", "e"],
+        "goalScore": 20000
+    },
+    {
+        "id": "medium-14",
+        "difficulty": "medium",
+        "letterSet": ["c", "o", "u", "p", "l", "e"],
+        "goalScore": 20000
+    },
+    {
+        "id": "medium-15",
+        "difficulty": "medium",
+        "letterSet": ["v", "a", "g", "i", "l", "e"],
+        "goalScore": 20000
+    },
+    {
+        "id": "medium-16",
+        "difficulty": "medium",
+        "letterSet": ["d", "e", "g", "r", "e", "e"],
+        "goalScore": 20000
+    },
+    {
+        "id": "medium-17",
+        "difficulty": "medium",
+        "letterSet": ["g", "l", "i", "t", "c", "h"],
+        "goalScore": 20000
+    },
+    {
+        "id": "medium-18",
+        "difficulty": "medium",
+        "letterSet": ["g", "h", "e", "t", "t", "o"],
+        "goalScore": 20000
+    },
+    {
+        "id": "medium-19",
+        "difficulty": "medium",
+        "letterSet": ["i", "s", "l", "a", "n", "d"],
+        "goalScore": 20000
+    },
+    {
+        "id": "medium-20",
+        "difficulty": "medium",
+        "letterSet": ["y", "e", "l", "l", "o", "w"],
+        "goalScore": 20000
     }
 ]
