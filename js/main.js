@@ -29,7 +29,13 @@ const resetLetterButtons = function (letterWrapperID) {
 }
 
 const checkFoundWords = function () {
-    showPopup('found-words');
+    showPopup('found-words-popup');
+    foundWordsDiv = document.getElementById('found-words');
+    let foundWords = '';
+    for (word of wordsFound) {
+        foundWords = foundWords + '<div>' + word + '</div>';
+    }
+    foundWordsDiv.innerHTML = foundWords;
 }
 
 const updateScoreboard = function() {
@@ -67,7 +73,7 @@ const hidePopup = function () {
 function loadSavedGames() {
     var savedGames = document.getElementById("load-game-popup");
     let saves = getSavedGames();
-    let loadMenu = '<h1>SELECT SAVE GAME TO LOAD:</h1>';
+    let loadMenu = '';
     for(let save of saves) {
         loadMenu = loadMenu +
         `<a class='button bouncy-button' onclick='loadGame("${save}"); hidePopup();'>${save.toUpperCase()}</a>`

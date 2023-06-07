@@ -23,50 +23,52 @@
     </div>
     <div id="popup" class="popup">
         <div id="settings-popup">
-            <div class="popup-content menu">
-                <div class="top-right-button bouncy-button" onclick="hidePopup();">
-                    <span>×</span>
-                </div>
-                <div class="menu">
-                    <a class="button bouncy-button" onclick="showPopup('save-game-popup');">
-                        Save Game
-                    </a>
-                    <a class="button bouncy-button" onclick="showPopup('load-game-popup'); loadSavedGames();">
-                        Load Game
-                    </a>
-                </div>
+            <div class="top-right-button bouncy-button" onclick="hidePopup();">
+                <span>×</span>
+            </div>
+            <div class="popup-header">SETTINGS</div>
+            <div class="menu">
+                <a class="button bouncy-button" onclick="showPopup('save-game-popup');">
+                    Save Game
+                </a>
+                <a class="button bouncy-button" onclick="showPopup('load-game-popup'); loadSavedGames();">
+                    Load Game
+                </a>
             </div>
         </div>
         <div id="save-game-popup">
-            <div class="popup-content menu">
-                <div class="top-right-button bouncy-button" onclick="showPopup('settings-popup');">
-                    <span>×</span>
-                </div>
-                <form onsubmit="
-                    if(saveGame(this['save-name'].value)){
-                        hidePopup();
-                        this.reset();
-                    };
-                    return false;
-                    ">
-                    <label for="save-name" class="bold">
-                        ENTER SAVE GAME NAME:
-                    </label>
-                    <input type="text" name="save-name" style="padding: 0">
-                    <div class="submit-reset">
-                        <button class="submit bouncy-button" style="width: fit-content">Save</button>
-                    </div>
-                </form>
+            <div class="top-right-button bouncy-button" onclick="showPopup('settings-popup');">
+                <span>×</span>
             </div>
+            <div class="popup-header">SAVE GAME</div>
+            <form onsubmit="
+                if(saveGame(this['save-name'].value)){
+                    hidePopup();
+                    this.reset();
+                };
+                return false;
+                ">
+                <input type="text" name="save-name" style="padding: 0">
+                <div class="submit-reset">
+                    <button class="submit bouncy-button" style="width: fit-content">Save</button>
+                </div>
+            </form>
         </div>
         <div id="load-game-popup">
-            <div class="popup-content">
-                <div class="top-right-button bouncy-button" onclick="showPopup('settings-popup');">
-                    <span>×</span>
-                </div>
-                <div class="menu">
-                    load game dialog goes here
-                </div>
+            <div class="top-right-button bouncy-button" onclick="showPopup('settings-popup');">
+                <span>×</span>
+            </div>
+            <div class="popup-header">LOAD GAME</div>
+            <div class="menu">
+            </div>
+        </div>
+        <div id="found-words-popup">
+            <div class="top-right-button bouncy-button" onclick="hidePopup();">
+                <span>×</span>
+            </div>
+            <div class="popup-header">FOUND WORDS</div>
+            <div id="found-words">
+
             </div>
         </div>
     </div>
