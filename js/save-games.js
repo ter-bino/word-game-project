@@ -69,7 +69,7 @@ const loadGame = function(saveGameName) {
 
     sessionStorage.setItem("gameVariables", JSON.stringify(gameVariables));
 
-    //blockPage(disappear = true, `"${saveGameName}" will be loaded...`, "💾", ["🥰", "💕", "😘", "💞", "😍"]);
+    blockPage(disappear = true, `"${saveGameName}" will be loaded...`, "💾", ["🥰", "💕", "😘", "💞", "😍"]);
 
     window.setTimeout(()=>window.location= "./text-twist.html", 750);
 }
