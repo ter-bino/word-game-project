@@ -54,7 +54,9 @@ const loadGame = function(saveGameName) {
 
     let saveToLoad = JSON.parse(localStorage.getItem("savedGames"))[saveGameName];
     
-    completedLevels = saveToLoad.compL;
+    completedLevels.easy = saveToLoad.compL.easy;
+    completedLevels.medium = saveToLoad.compL.medium;
+    completedLevels.hard = saveToLoad.compL.hard;
     currentLevel = saveToLoad.currL;
     wordsFound = saveToLoad.wordF;
     currentPoints = saveToLoad.currP;
@@ -63,5 +65,6 @@ const loadGame = function(saveGameName) {
 
     updateScoreboard();
     updateLetterButtons(currentLevel.letterSet);
+    document.querySelector("#current-level").innerHTML = getCurrentLevel();
     updateGameVariables();
 }
