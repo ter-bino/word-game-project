@@ -118,5 +118,35 @@
         "difficulty": "hard",
         "letterSet": ["p", "l", "a", "n", "e"],
         "goalScore": 30000
+    },
+    {
+        "id": "hard-21",
+        "difficulty": "hard",
+        "letterSet": ["s", "t", "a", "r", "e"],
+        "goalScore": 30000
+    },
+    {
+        "id": "hard-22",
+        "difficulty": "hard",
+        "letterSet": ["l", "a", "s", "e", "r"],
+        "goalScore": 30000
+    },
+    {
+        "id": "hard-23",
+        "difficulty": "hard",
+        "letterSet": ["p", "a", "r", "s", "e"],
+        "goalScore": 30000
+    },
+    {
+        "id": "hard-24",
+        "difficulty": "hard",
+        "letterSet": ["s", "t", "a", "l", "e"],
+        "goalScore": 30000
+    },
+    {
+        "id": "hard-25",
+        "difficulty": "hard",
+        "letterSet": ["c", "r", "e", "s", "t"],
+        "goalScore": 30000
     }
 ]
