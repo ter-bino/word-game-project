@@ -118,5 +118,35 @@
         "difficulty": "medium",
         "letterSet": ["y", "e", "l", "l", "o", "w"],
         "goalScore": 20000
+    },
+    {
+        "id": "medium-21",
+        "difficulty": "medium",
+        "letterSet": ["m", "e", "r", "i", "t", "s"],
+        "goalScore": 20000
+    },
+    {
+        "id": "medium-22",
+        "difficulty": "medium",
+        "letterSet": ["d", "a", "n", "g", "e", "r"],
+        "goalScore": 20000
+    },
+    {
+        "id": "medium-23",
+        "difficulty": "medium",
+        "letterSet": ["p", "a", "s", "t", "e", "l"],
+        "goalScore": 20000
+    },
+    {
+        "id": "medium-24",
+        "difficulty": "medium",
+        "letterSet": ["e", "n", "l", "i", "s", "t"],
+        "goalScore": 20000
+    },
+    {
+        "id": "medium-25",
+        "difficulty": "medium",
+        "letterSet": ["c", "r", "a", "t", "e", "s"],
+        "goalScore": 20000
     }
 ]
